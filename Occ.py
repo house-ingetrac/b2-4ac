@@ -14,18 +14,29 @@ make a new array/list .
 int(strname) will change the string to a number.
 then create the dictionary using index 0 of the array
 '''
-def makedict(filename):
-    d=dict()
-    for line in open(filename):
-        print line
-       # row=line.split()
-        #if len(row)==2:
-         #   d[row[0]]=row[1]
-  #  return d
-        
-     
-      
 
+
+def makedict(filename):
+    d = dict()
+   # s = open(filename).read()
+    #print s
+    for line in open(filename):
+        if line[0]=='"':
+            ctr=1
+            while line[ctr]< len(line):
+                if line[ctr]!= '"':
+                    ctr+=1
+                else:
+                    d= dict(line[0:ctr+1],line [ctr+1:])
+
+        else:
+            cntr=len(line)
+            while cntr!=0:
+                if line[cntr]==",":
+                    d=(dict(line[0:ctr],line[ctr:len(line)+1]))
+            ctr-=1
+    print d
+            
 makedict("occupations.csv")
 
         
