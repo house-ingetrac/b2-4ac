@@ -17,15 +17,16 @@ then create the dictionary using index 0 of the array
 def makedict(filename):
     d=dict()
     for line in open(filename):
-        row=line.split()
-        if len(row)==2:
-            d[row[0]]=row[1]
-    return d
+        print line
+       # row=line.split()
+        #if len(row)==2:
+         #   d[row[0]]=row[1]
+  #  return d
         
      
       
 
-print makedict("occupations.csv")
+makedict("occupations.csv")
 
         
 
