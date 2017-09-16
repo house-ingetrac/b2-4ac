@@ -6,16 +6,10 @@ HW03: StI/O: Divine your Destiny!
 '''
 import random
 
-## Separate all of the rows of the csv
-
-
 def makedict(filename):
     d = dict()
-   # s = open(filename).read()
-    #print s
     for line in open(filename):
         newline= line[line.rfind("n")]
-       # d=dict(,line[line.rfind(',')+1:len(line)+1])
         d[line[0:line.rfind(',')]] = line[line.rfind(',')+1:len(line)-1]
     #print d
     return d            
@@ -42,7 +36,7 @@ def get_random(arr):
         
             
 print get_random(make_arr(make_float(makedict("occupations.csv"))))
-print len(make_arr(make_float(makedict("occupations.csv"))))
+#print len(make_arr(make_float(makedict("occupations.csv"))))
 
  
 
