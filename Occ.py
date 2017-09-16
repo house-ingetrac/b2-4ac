@@ -27,7 +27,22 @@ def make_float(d):
             d[k]=d[k]
     return d
 
-print make_float(makedict("occupations.csv"))
-
+def make_arr(d):
+    jobs=[]
+    for k in d:
+        if type(d[k])!= str and k!="Total":
+            ctr= int(d[k]*10)
+            while ctr!=0:
+                jobs.append(k)
+                ctr-=1
+    return jobs
+def get_random(arr):
+    return random.choice(arr)
+    
         
+            
+print get_random(make_arr(make_float(makedict("occupations.csv"))))
+print len(make_arr(make_float(makedict("occupations.csv"))))
+
+ 
 
