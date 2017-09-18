@@ -10,9 +10,11 @@ def makedict(filename):
     d = dict()
     for line in open(filename):
         newline= line[line.rfind("n")]
-        d[line[0:line.rfind(',')]] = line[line.rfind(',')+1:len(line)-1]
+        d[line[0:line.rfind(',')]] = line[line.rfind(',')+1:len(line)-1]#deals with the categories that include commas
     #print d
-    return d            
+    return d
+
+#make string numbers into floats
 def make_float(d):
     for k in d:
         try:
@@ -21,6 +23,7 @@ def make_float(d):
             d[k]=d[k]
     return d
 
+#makes an array to then select a random choice
 def make_arr(d):
     jobs=[]
     for k in d:
@@ -30,11 +33,13 @@ def make_arr(d):
                 jobs.append(k)
                 ctr-=1
     return jobs
+
+#final selection
 def get_random(arr):
     return random.choice(arr)
     
         
-            
+#output
 print get_random(make_arr(make_float(makedict("occupations.csv"))))
 #print len(make_arr(make_float(makedict("occupations.csv"))))
 
